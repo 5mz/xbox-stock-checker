@@ -4,8 +4,7 @@ import requests
 import webbrowser
 import time
 
-URL_AMAZON = 'https://www.amazon.de/Microsoft-RRT-00009-Xbox-Series-1TB/dp/B08H93ZRLL/'
-URL_MM = 'https://www.mediamarkt.at/de/product/_microsoft-xbox-series-x-1-tb-1802067.html'
+URL_AMAZON = 'https://www.amazon.com/Xbox-X/dp/B08H75RTZ8/ref=sr_1_3?keywords=xbox+series+x+console&qid=1645156829&sr=8-3'
 URL_MICROSOFT2 = 'https://www.microsoft.com/de-at/p/xbox-series-x/8wj714n3rbtl?cid=msft_web_collection'
 URL_MICROSOFT3 = 'https://www.microsoft.com/de-de/p/xbox-series-x/8wj714n3rbtl?cid=msft_web_collection'
 check = True
@@ -56,12 +55,3 @@ while check == True:
         exit()
     else:
         print('Microsoft .de check successful at:\t', datetime.now().strftime("%H:%M:%S"))
-
-    requestMM = makeRequest(URL_MM)
-    if 'Dieser Artikel ist aktuell nicht' not in requestMM.text:
-        webbrowser.get('Brave').open(URL_MM)
-        print('XBOX FOUND on MS.AT!')
-        exit()
-    else:
-        print('MediaMarkt .at check successful at:\t', datetime.now().strftime("%H:%M:%S"), '\n')
-    time.sleep(45)
