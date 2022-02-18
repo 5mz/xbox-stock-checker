@@ -5,8 +5,8 @@ import webbrowser
 import time
 
 URL_AMAZON = 'https://www.amazon.com/Xbox-X/dp/B08H75RTZ8/ref=sr_1_3?keywords=xbox+series+x+console&qid=1645156829&sr=8-3'
-URL_MICROSOFT2 = 'https://www.microsoft.com/de-at/p/xbox-series-x/8wj714n3rbtl?cid=msft_web_collection'
-URL_MICROSOFT3 = 'https://www.microsoft.com/de-de/p/xbox-series-x/8wj714n3rbtl?cid=msft_web_collection'
+URL_MICROSOFT2 = 'https://www.xbox.com/en-US/consoles/xbox-series-x?cid=msft_web_collection'
+URL_GAMESTOP = 'https://www.gamestop.com/consoles-hardware/xbox-series-x%7Cs/consoles/products/microsoft-xbox-series-x/11108371.html?bt=true'
 check = True
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.112 Safari/537.36'}
 
@@ -43,15 +43,15 @@ while check == True:
     requestMS = makeRequest(URL_MICROSOFT2)
     if requestMS.find(id='buttons_AddToCartButton') != None or requestMS.find(id='buttons_ConfigureDeviceButton') != None: 
         webbrowser.get('Brave').open(URL_MICROSOFT2)
-        print('XBOX FOUND on MS.AT!')
+        print('XBOX FOUND on Microsoft!')
         exit()
     else:
-        print('Microsoft .at check successful at:\t', datetime.now().strftime("%H:%M:%S"))
+        print('Microsoft check successful at:\t', datetime.now().strftime("%H:%M:%S"))
 
-    requestMS = makeRequest(URL_MICROSOFT3)
+    requestMS = makeRequest(URL_GAMESTOP)
     if requestMS.find(id='buttons_AddToCartButton') != None or requestMS.find(id='buttons_ConfigureDeviceButton') != None: 
-        webbrowser.get('Brave').open(URL_MICROSOFT3)
-        print('XBOX FOUND on MS.DE!')
+        webbrowser.get('Brave').open(URL_GAMESTOP)
+        print('XBOX FOUND on GAMESTOP!')
         exit()
     else:
-        print('Microsoft .de check successful at:\t', datetime.now().strftime("%H:%M:%S"))
+        print('Gamestop check successful at:\t', datetime.now().strftime("%H:%M:%S"))
